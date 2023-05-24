@@ -1,6 +1,6 @@
 <?php
 
-$conn = mysqli_connect("localhost", "root", "", "fiz") or die("Database is not connected");
+$conn = mysqli_connect("localhost", "root", "", "test") or die("Database is not connected");
 if (isset($_POST['send'])) {
 
     $name = $_POST['name'];
@@ -9,7 +9,7 @@ if (isset($_POST['send'])) {
     $department = $_POST['department'];
     $send = $_POST['send'];
 
-    $query = " INSERT INTO `insert_data`( `name`, `email`, `phone`, `department`) VALUES ('$name','$email','$phone','$department')";
+    $query = " INSERT INTO `art_data`( `name`, `email`, `phone`, `department`) VALUES ('$name','$email','$phone','$department')";
 
     $check =  mysqli_query($conn, $query);
 
@@ -53,8 +53,9 @@ if (isset($_POST['send'])) {
         background-color: rgb(43, 3, 82);
         text-align: center;
         color: #ffffff;
-        padding: 10px;
+        padding: 10px 170px;
         font-size: 16px;
+ 
     }
 
     button:hover {
@@ -111,7 +112,7 @@ if (isset($_POST['send'])) {
         <th>Department</th>
         <?php
 
-        $read = "SELECT * FROM `insert_data`";
+        $read = "SELECT * FROM `art_data`";
         $maybe = mysqli_query($conn, $read);
         while ($row = (mysqli_fetch_array($maybe))) {
         ?>
