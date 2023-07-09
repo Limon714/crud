@@ -11,6 +11,7 @@
     background-color: rgb(74, 176, 26);
     color: #8e7373;
     padding: 10px 0px;
+    transition: 0.5s ease-in-out;
 }
 
 i{
@@ -18,7 +19,7 @@ i{
 }
 a{
    text-decoration: none;
-   color: #ffffff;
+   color: #000000;
 }
 
 nav a{
@@ -29,6 +30,7 @@ nav a:hover{
     background-color: #420630;
     padding: 5px;
     border-radius: 5px;
+    color: #ffffff;
 }
 sup{
     color: #420630;
@@ -49,7 +51,7 @@ h2{
 
 form{
     display: grid;
-   grid-template-columns: auto;
+    grid-template-columns: auto;
     margin-left: 260px;
     padding: 10px;
     padding-bottom: 100px;
@@ -69,4 +71,38 @@ form{
     padding: 10px;
     margin: 10px;
     width: 60%;
+}
+.submit_btn:hover{
+    background-color:#a0959d;
+    color: #ffffff;
+}
+.footer{
+    background-color: rgb(74, 176, 26);
+    text-align: center;
+    align-items: center;
+    padding: 19px;
+    bottom: 0;
+}
+.info{
+    width: 30%;
+    background-color: rgb(74, 176, 26);
+    padding: 10px;
+    margin-left: 750px;
+    border-radius: 5px;
+    display: grid;
+    grid-template-columns: auto auto;
+    position: relative;
+    justify-content: space-between;
+  
+}
+.dmsg{
+    font-weight: bold;
+    margin: 10px;
+
+    
+}
+
+.fa-times{
+    margin-left:60px;
+    margin-top: 10px;
 }

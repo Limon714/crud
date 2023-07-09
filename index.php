@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,7 +18,6 @@
    <?php include('footer.php') ?>
 
   
-
     <!-- {/* JavaScript */} -->
     <script src="./js/script.js"></script>
 </body>
