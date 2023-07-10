@@ -70,6 +70,7 @@
 
 
 <table id="customers">
+
 <tr>
       <th>Sl NO</th>
       <th>Product Name</th>
@@ -77,10 +78,12 @@
       <th>Product Price</th>
       <th>Action</th>
 </tr>
+
   <?php 
   $select_data = "SELECT `id`, `name`, `price`, `img` FROM `products`";
   $select_data_query = mysqli_query($conn, $select_data) ;
   $rows_count = mysqli_num_rows($select_data_query);
+
 
 
   if(mysqli_num_rows($select_data_query)>0){
@@ -101,11 +104,40 @@
 </tr>
 
 
+  if(mysqli_num_rows($select_data_query)>0){
+    while($rows = mysqli_fetch_array($select_data_query))
+    {
+?>
+      <tr>
+      <th>Sl NO</th>
+      <th>Product Image</th>
+      <th>Product Name</th>
+      <th>Product Price</th>
+      <th>Action</th>
+</tr>
+<tr>
+  <td><?php echo $rows['id'] ?></td>
+  <td><?php echo $rows['name'] ?></td>
+  <td><?php echo $rows['price'] ?></td>
+  <td><?php echo $rows['img'] ?></td>
+  <td><?php echo $rows['id'] ?></td>
+ 
+</tr>
+
+
    <?php }
   }
   
   ?>
  
+
+
+   <?php }
+  }
+  
+  ?>
+ 
+
 
 </table>
   
