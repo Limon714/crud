@@ -47,9 +47,20 @@
 
   }
 
+  .fa-edit{
+    color: #420630;
+}
+.fa-trash{
+    color: red;
+    margin-left: 10px;
+}
+
 </style>
 <body>
-   <?php include('header.php') ?>
+   <?php 
+   include('header.php');
+   include('connect.php');
+    ?>
 <!--  
 <table border="1">
     <thead>
@@ -59,36 +70,43 @@
 
 
 <table id="customers">
-  <tr>
-        <th>Sl NO</th>
-        <th>Product Image</th>
-        <th>Product Name</th>
-        <th>Product Price</th>
-        <th>Action</th>
-  </tr>
-  <tr>
-    <td>1</td>
-    <td>Maria Anders</td>
-    <td>Germany</td>
-    <td>Germany</td>
-    <td>Germany</td>
-  </tr>
+<tr>
+      <th>Sl NO</th>
+      <th>Product Name</th>
+      <th>Product Image</th>
+      <th>Product Price</th>
+      <th>Action</th>
+</tr>
+  <?php 
+  $select_data = "SELECT `id`, `name`, `price`, `img` FROM `products`";
+  $select_data_query = mysqli_query($conn, $select_data) ;
+  $rows_count = mysqli_num_rows($select_data_query);
 
 
-  <tr>
-    <td>2</td>
-    <td>Simon Crowther</td>
-    <td>UK</td>
-    <td>UK</td>
-    <td>UK</td>
-  </tr>
-  <tr>
-    <td>3</td>
-    <td>Marie Bertrand</td>
-    <td>France</td>
-    <td>France</td>
-    <td>France</td>
-  </tr>
+  if(mysqli_num_rows($select_data_query)>0){
+    while($rows = mysqli_fetch_array($select_data_query))
+    {
+?>
+    
+<tr>
+  <td><?php echo $rows['id'] ?></td>
+  <td><?php echo $rows['name'] ?></td>
+  <td><img src="../crud/images/<?php echo $rows['img']  ?>" width="60" height="60"></td>
+  <td><?php echo $rows['price'] ?></td>
+  <td>
+   <a href="../crud/edit.php/id=<?php echo $rows['id'] ?>"><i class="fas fa-edit"></i></a>
+   <a href="../crud/delete.php/id=<?php echo $rows['id'] ?>"><i class="fas fa-trash"></i></a>
+  </td>
+ 
+</tr>
+
+
+   <?php }
+  }
+  
+  ?>
+ 
+
 </table>
   
     <!-- {/* JavaScript */} -->
